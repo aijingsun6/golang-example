@@ -6,8 +6,19 @@ import (
 	"example.com/greetings"
 )
 
+func showHello(name string) {
+	message, err := greetings.Hello(name)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(message)
+	}
+
+}
+
 func main() {
-    // Get a greeting message and print it.
-    message := greetings.Hello("Gladys")
-    fmt.Println(message)
+	// Get a greeting message and print it.
+	showHello("Gladys")
+	showHello("")
+
 }
