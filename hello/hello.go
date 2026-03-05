@@ -7,7 +7,7 @@ import (
 )
 
 func showHello(name string) {
-	message, err := greetings.Hello(name)
+	message, err := greetings.HelloWithErrpr(name)
 	if err != nil {
 		fmt.Println(err)
 	} else {
