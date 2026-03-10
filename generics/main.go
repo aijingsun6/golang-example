@@ -65,8 +65,20 @@ func generics() {
 		SumNumbers(floats))
 
 }
+
+func index() {
+
+	// Index works on a slice of ints
+	si := []int{10, 20, 15, -10}
+	fmt.Println(Index(si, 15))
+
+	// Index also works on a slice of strings
+	ss := []string{"foo", "bar", "baz"}
+	fmt.Println(Index(ss, "hello"))
+}
 func main() {
 	fmt.Println("generics")
 	noneGenerics()
 	generics()
+	index()
 }
