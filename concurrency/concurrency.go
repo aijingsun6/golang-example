@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"sync"
 	"time"
 )
 
@@ -47,10 +48,30 @@ func fibonacciTest() {
 		fmt.Println(i)
 	}
 }
+
+var a string
+var once sync.Once
+
+func setup() {
+	a = "hello, world"
+}
+
+func doprint() {
+	once.Do(setup)
+	log.Println(a)
+}
+
+func twoprint() {
+	go doprint()
+	go doprint()
+}
+
 func main() {
 	log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds | log.Lshortfile)
-	go say("world")
-	say("hello")
-	sumTest()
-	fibonacciTest()
+	// go say("world")
+	// say("hello")
+	// sumTest()
+	// fibonacciTest()
+	twoprint()
+	twoprint()
 }
